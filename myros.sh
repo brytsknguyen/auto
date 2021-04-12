@@ -7,9 +7,9 @@
 USER_NAME='eee' 
 ROS_USE_ROSBUILD='0'
 ROS_INFO_TIME='0'
-ROS_BUILDWS_NAME='indigo_workspace' 
+ROS_BUILDWS_NAME='melodic_workspace' 
 #ROS_CATKINWS_NAME='NTU_Research_Group_ROS'
-ROS_CATKINWS_NAME='drones'
+ROS_CATKINWS_NAME='catkin_ws'
 ROS_REMOTE_IP='' 
 #ROS_REMOTE_IP='192.168.1.127'
  
@@ -43,7 +43,7 @@ echo -e "ROS_INFO_TIME: \E[1;36mINVISIBLE\E[0m"
 fi
  
 #Get current using Wi-Fi information 
-WLAN_IP=`ifconfig | grep 'inet 192.168' | sed 's/^.*inet //g' | sed 's/  netmask.*$//g'` 
+WLAN_IP=`ifconfig | grep 'inet addr:192.168' | sed 's/^.*addr://g' | sed 's/Bcast:.*$//g'` 
 if [ "$WLAN_IP" = "" ]; then 
 echo -e "\E[1;31;47m!!!!!No Local Network connect!!!!!\E[0m" 
 export ROS_MASTER_URI=http://localhost:11311 

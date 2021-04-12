@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Installing..."
-echo "Author Jeffsan Chen Wang: jeffsan.wang@gmail.com"
+echo "Author Thien-Minh Nguyen (thienminh.npn@gmail.com), forked from htts://github.com/wang-chen/auto"
 sudo cp git-prompt.sh ~/
 sudo cp git-completion.bash ~/
 sudo cp myros.sh ~/
