@@ -9,7 +9,7 @@ ROS_USE_ROSBUILD='0'
 ROS_INFO_TIME='0'
 ROS_BUILDWS_NAME='melodic_workspace' 
 #ROS_CATKINWS_NAME='NTU_Research_Group_ROS'
-ROS_CATKINWS_NAME='catkin_ws'
+ROS_CATKINWS_NAME='dev_ws'
 ROS_REMOTE_IP='' 
 #ROS_REMOTE_IP='192.168.1.127'
  
@@ -20,7 +20,7 @@ ROS_REMOTE_IP=''
 #==Do not edit below========================================================  
 if [ "$ROS_USE_ROSBUILD" = "1" ]; then 
 #Setting ROS rosbuild workspace 
-echo -e "\E[1;34mROS_PACKAGE_PATH (ROSBUILD) is setting.\E[0m" 
+#echo -e "\E[1;34mROS_PACKAGE_PATH (ROSBUILD) is setting.\E[0m" 
 source ~/${ROS_BUILDWS_NAME}/setup.bash 
 export ROS_PACKAGE_PATH=/home/${USER_NAME}/${ROS_BUILDWS_NAME}:${ROS_PACKAGE_PATH} 
  
@@ -28,10 +28,10 @@ export ROS_PACKAGE_PATH=/home/${USER_NAME}/${ROS_BUILDWS_NAME}:${ROS_PACKAGE_PAT
 #export ROS_PACKAGE_PATH=/home/chencl/NTU_Research_Group_ROS:${ROS_PACKAGE_PATH} 
 else 
 #Setting ROS catkin workspace 
-echo -e "\E[1;34mROS_PACKAGE_PATH (CATKIN) is setting.\E[0m" 
+#echo -e "\E[1;34mROS_PACKAGE_PATH (CATKIN) is setting.\E[0m" 
 source ~/${ROS_CATKINWS_NAME}/devel/setup.bash 
 fi 
-echo $ROS_PACKAGE_PATH 
+#echo $ROS_PACKAGE_PATH 
 
 #Setting ROS INFO Time in Display
 if [ "$ROS_INFO_TIME" = "1" ]; then
@@ -43,9 +43,9 @@ echo -e "ROS_INFO_TIME: \E[1;36mINVISIBLE\E[0m"
 fi
  
 #Get current using Wi-Fi information 
-WLAN_IP=`ifconfig | grep 'inet 192.168' | sed 's/^.*inet //g' | sed 's/  netmask.*$//g'` 
+WLAN_IP=`ifconfig | grep 'inet 192.168.1\.' | sed 's/^.*inet //g' | sed 's/  netmask.*$//g'` 
 if [ "$WLAN_IP" = "" ]; then 
-echo -e "\E[1;31;47m!!!!!No Local Network connect!!!!!\E[0m" 
+echo -e "\E[1;31;47mNo Local Wi-Fi Network Connected\E[0m" 
 export ROS_MASTER_URI=http://localhost:11311 
 echo -e "ROS_MASTER_URI: \E[1;36m$ROS_MASTER_URI\E[0m"	 
 else 
