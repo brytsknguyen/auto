@@ -43,7 +43,8 @@ echo -e "ROS_INFO_TIME: \E[1;36mINVISIBLE\E[0m"
 fi
  
 #Get current using Wi-Fi information 
-WLAN_IP=`ifconfig | grep 'inet 192.168.1\.' | sed 's/^.*inet //g' | sed 's/  netmask.*$//g'` 
+WLAN_ID=$(ifconfig | grep wl* | sed 's/:.*$//g')
+WLAN_IP=$(ifconfig $WLAN_ID | grep 'inet 192.168\.' | sed 's/^.*inet //g' | sed 's/  netmask.*$//g')
 if [ "$WLAN_IP" = "" ]; then 
 echo -e "\E[1;31;47mNo Local Wi-Fi Network Connected\E[0m" 
 export ROS_MASTER_URI=http://localhost:11311 
