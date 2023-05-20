@@ -18,10 +18,8 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 # '\W' adds the name of the current directory
 export PS1="$purple\u$green\$(__git_ps1)$blue \W $ $reset"
 
-alias ls="ls --color=auto"
-alias ll="ls -al --color=auto"
-alias ck="source ck.sh"
-alias CK="source ck.sh"
+# shorthand to change git user
+alias gitme="source gitme.sh"
 source ~/myros.sh
 #--------------------------->
 #--------------------------->
