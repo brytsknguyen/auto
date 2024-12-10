@@ -1,4 +1,9 @@
 #!/bin/bash 
+# This program setting ROS environment 
+# Please keyin {ROS_WS_NAME}, {USER_NAME} and {ROS_CATKINWS_NAME} string, then edit .bashrc add one line "source ~/myros.sh" 
+
+USER_NAME="tmn"
+export ROS_WS_NAME="ros2_ws"
 
 #Get current using Wi-Fi information 
 WLAN_ID=$(ifconfig | grep wl* | sed 's/:.*$//g')
@@ -13,18 +18,21 @@ WLAN_SSID=`iwgetid -r`
 echo -e "Wi-Fi AP SSID: \E[1;36m$WLAN_SSID\E[0m" 
  
 #Print ROS IP Setting 
-export ROS_HOSTNAME=${WLAN_IP} 
-export ROS_IP=${WLAN_IP} 
+# export ROS_HOSTNAME=${WLAN_IP} 
+# export ROS_IP=${WLAN_IP} 
  
-if [ "$ROS_REMOTE_IP" = "" ]; then 
-export ROS_MASTER_URI=http://localhost:11311	 
-else 
-export ROS_MASTER_URI=http://${ROS_REMOTE_IP}:11311 
-fi 
+# if [ "$ROS_REMOTE_IP" = "" ]; then 
+# export ROS_MASTER_URI=http://localhost:11311	 
+# else 
+# export ROS_MASTER_URI=http://${ROS_REMOTE_IP}:11311 
+# fi 
  
-#echo "ROS_HOSTNAME: $ROS_HOSTNAME"  
-echo -e "ROS_IP: \E[1;36m$ROS_IP\E[0m" 
-echo -e "ROS_MASTER_URI: \E[1;36m$ROS_MASTER_URI\E[0m" 
+# #echo "ROS_HOSTNAME: $ROS_HOSTNAME"  
+# echo -e "ROS_IP: \E[1;36m$ROS_IP\E[0m" 
+# echo -e "ROS_MASTER_URI: \E[1;36m$ROS_MASTER_URI\E[0m"
+
+echo -e "MAIN ROS WS: \E[1;36m$ROS_WS_NAME\E[0m" 
+
 fi 
  
 #Print all ROS Environment Variable 

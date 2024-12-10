@@ -19,7 +19,7 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 export PS1="$purple\u$green\$(__git_ps1)$blue \W $ $reset"
 
 # shorthand to change git user
-alias gitme="source gitme.sh"
+# alias gitme="source gitme.sh"
 source ~/myros.sh
 #--------------------------->
 #--------------------------->
